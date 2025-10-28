@@ -5,7 +5,11 @@ import { sdk } from "@farcaster/miniapp-sdk"
 
 export default function Page() {
   useEffect(() => {
-    sdk.actions.ready()
+    const initializeMiniApp = async () => {
+      await sdk.actions.ready()
+    }
+
+    initializeMiniApp()
   }, [])
 
   return (
