@@ -1,6 +1,6 @@
 import { createFrames } from "frames.js/next";
 
-export const frames = createFrames({
+const frames = createFrames({
   basePath: "/api/frame",
 });
 
@@ -17,7 +17,7 @@ export const GET = frames(async () => {
       },
     ],
     inputText: "What troubles your mind?",
-    textInput: "true", // ✅ ensures Warpcast shows the input box
+    textInput: "true",
   };
 });
 
@@ -42,6 +42,7 @@ export const POST = frames(async (ctx) => {
     };
   } catch (err) {
     console.error("Oracle API error:", err);
+
     return {
       image: `${process.env.NEXT_PUBLIC_APP_URL}/api/frame/image?text=${encodeURIComponent(
         "The Oracle whispers... but cannot speak now."
